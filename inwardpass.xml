@@ -1,0 +1,646 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+
+
+        <record id="view_inwardpass_form" model="ir.ui.view">
+            <field name="name">inwardpass_form</field>
+            <field name="model">inwardpass</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                
+                <form string="inwardpass">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+
+                                <field name="date"/>
+                                <field name="document_type"/>
+                                <field name="invoice_ref" />
+                                <field name="vehicle_type" />
+                                <field name="supplier_details"/>
+                        
+                            </group>
+                    
+                            <group name="group_right">
+                                <field name="gin"/>
+                                <field name="lc"/>
+                                <field name="bilty"/>
+                                <field name="time_out"/>
+                                <field name="vehicle"/> 
+        
+                            </group>
+                        </group>
+                    </sheet>
+                    <notebook colspan="3">
+                        <page string="Details" >
+                            <group>
+                                    <field name="inward_id" nolabel='1'>
+                                        <tree editable="bottom">
+                                            <field name="uom"/>
+                                            <field name="qty"/>
+                                            <field name="item"/>
+                                        </tree>
+                                    </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        
+
+        <record id="view_inwardpass_tree" model="ir.ui.view">
+            <field name="name">inwardpass</field>
+            <field name="model">inwardpass</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+
+                <tree string="inwardpass">
+
+                    <field name="date"/>
+                    <field name="document_type" />
+                    <field name="invoice_ref" />
+                    <field name="time_in"/>
+                    <field name="vehicle_type"/>
+                    <field name="supplier_details"/>
+                    <field name="gin"/>
+                    <field name="lc"/>
+                    <field name="bilty"/>
+                    <field name="time_out"/>
+                    <field name="vehicle"/>
+
+                </tree>
+               
+            </field>
+
+        </record>
+        <record model="ir.actions.act_window" id="action_inwardpass">
+            <field name="name">Inwardpass</field>
+            <field name="res_model">inwardpass</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_inwardshop_form" model="ir.ui.view">
+            <field name="name">inwardshop_form</field>
+            <field name="model">inwardshop</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                
+                <form string="inwardshop">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+
+                                <field name="date"/>
+                                <field name="time_in"/>
+                                <field name="srin"/>
+                                <field name="branch"/>
+                        
+                            </group>
+                    
+                            <group name="group_right">
+
+                                <field name="gin"/>
+                                <field name="vehicle_type"/>
+                                <field name="vehicle"/>
+                                <field name="fleet_vehicle_id"/>
+        
+                            </group>
+                        </group>
+                    </sheet>
+                    <notebook colspan="3">
+                        <page string="Details" >
+                            <group>
+                                    <field name="inshop_id" nolabel='1'>
+                                        <tree editable="bottom">
+                                            <field name="uom"/>
+                                            <field name="qty"/>
+                                            <field name="item"/>
+                                        </tree>
+                                    </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_inwardshop_tree" model="ir.ui.view">
+            <field name="name">inwardshop</field>
+            <field name="model">inwardshop</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+
+                <tree string="inwardshop">
+
+                    <field name="date"/>
+                    <field name="time_in"/>
+                    <field name="srin"/>
+                    <field name="branch"/>
+                    <field name="gin"/>
+                    <field name="vehicle_type"/>
+                    <field name="vehicle"/>
+                    <field name="fleet_vehicle_id"/>
+                        
+
+                </tree>
+               
+            </field>
+
+        </record>
+
+        <record model="ir.actions.act_window" id="action_inwardshop">
+            <field name="name">inwardshop</field>
+            <field name="res_model">inwardshop</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_outwardpass_form" model="ir.ui.view">
+            <field name="name">outwardpass_form</field>
+            <field name="model">outwardpass</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                
+                <form string="outwardpass">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+
+                                <field name="date"/>
+                                <field name="nature"/>
+                                <field name="sron"/>
+                                <field name="supplier_details"/>
+                        
+                            </group>
+                    
+                            <group name="group_right">
+
+                                <field name="gon"/>
+                                <field name="time_out"/>
+                                <field name="vehicle_type"/>
+                                <field name="vehicle"/>
+        
+                            </group>
+                        </group>
+                    </sheet>
+                    <notebook colspan="3">
+                        <page string="Details" >
+                            <group>
+                                    <field name="outward_id" nolabel='1'>
+                                        <tree editable="bottom">
+                                            <field name="uom"/>
+                                            <field name="qty"/>
+                                            <field name="item"/>
+                                        </tree>
+                                    </field>
+
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_outwardpass_tree" model="ir.ui.view">
+            <field name="name">outwardpass</field>
+            <field name="model">outwardpass</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+
+                <tree string="outwardpass">
+
+                    <field name="date"/>
+                    <field name="gon"/>
+                    <field name="time_out"/>
+                    <field name="vehicle_type"/>
+                    <field name="vehicle"/>
+                    <field name="nature"/>
+                    <field name="sron"/>
+                    <field name="supplier_details"/>
+                        
+
+                </tree>
+               
+            </field>
+
+        </record>
+
+        <record model="ir.actions.act_window" id="action_outwardpass">
+            <field name="name">outwardpass</field>
+            <field name="res_model">outwardpass</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_outwardshop_form" model="ir.ui.view">
+            <field name="name">outwardshop_form</field>
+            <field name="model">outwardshop</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                
+                <form string="outwardshop">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+
+                                <field name="date"/>
+                                <field name="time_out"/>
+                                <field name="vehicle_type"/>
+                        
+                            </group>
+                    
+                            <group name="group_right">
+
+                                <field name="gon"/>
+                                <field name="vehicle"/>
+                                <field name="fleet_vehicle_id"/>
+        
+                            </group>
+                        </group>
+                    </sheet>
+                    <notebook colspan="3">
+                        <page string="Details" >
+                            <group>
+                                    <field name="outshop_id" nolabel='1'>
+                                        <tree editable="bottom">
+                                            <field name="uom"/>
+                                            <field name="qty"/>
+                                            <field name="item"/>
+                                        </tree>
+                                    </field>
+
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_outwardshop_tree" model="ir.ui.view">
+            <field name="name">outwardshop</field>
+            <field name="model">outwardshop</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+
+                <tree string="outwardshop">
+
+                    <field name="date"/>
+                    <field name="time_out"/>
+                    <field name="vehicle_type"/>
+                    <field name="gon"/>
+                    <field name="vehicle"/>
+                    <field name="fleet_vehicle_id"/>
+
+                </tree>
+               
+            </field>
+
+        </record>
+
+        <record model="ir.actions.act_window" id="action_outwardshop">
+            <field name="name">outwardshop</field>
+            <field name="res_model">outwardshop</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+            <record id="view_inwardgen_form" model="ir.ui.view">
+            <field name="name">inwardgen_form</field>
+            <field name="model">inwardgen</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                
+                <form string="inwardgen">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+
+                                <field name="date"/>
+                                <field name="time_in"/>
+                                <field name="vehicle_type"/>
+                        
+                            </group>
+                    
+                            <group name="group_right">
+
+                                <field name="gin"/>
+                                <field name="document_ref"/>
+                                <field name="vehicle"/>
+        
+                            </group>
+                        </group>
+                    </sheet>
+                    <notebook colspan="3">
+                        <page string="Details" >
+                            <group>
+                                    <field name="ingen_id" nolabel='1'>
+                                        <tree editable="bottom">
+                                            <field name="uom"/>
+                                            <field name="qty"/>
+                                            <field name="item"/>
+                                        </tree>
+                                    </field>
+
+                             </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_inwardgen_tree" model="ir.ui.view">
+            <field name="name">inwardgen</field>
+            <field name="model">inwardgen</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+
+                <tree string="inwardgen">
+
+                    <field name="date"/>
+                    <field name="time_in"/>
+                    <field name="vehicle_type"/>
+                    <field name="gin"/>
+                    <field name="document_ref"/>
+                    <field name="vehicle"/>
+
+                </tree>
+               
+            </field>
+
+        </record>
+
+        <record model="ir.actions.act_window" id="action_inwardgen">
+            <field name="name">inwardgen</field>
+            <field name="res_model">inwardgen</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_outwardgen_form" model="ir.ui.view">
+            <field name="name">outwardgen_form</field>
+            <field name="model">outwardgen</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                
+                <form string="outwardgen">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+
+                                <field name="date"/>
+                                <field name="time_out"/>
+                                <field name="vehicle_type"/>
+                        
+                            </group>
+                    
+                            <group name="group_right">
+
+                                <field name="gon"/>
+                                <field name="document_ref"/>
+                                <field name="vehicle"/>
+        
+                            </group>
+                        </group>
+                    </sheet>
+                    <notebook colspan="3">
+                        <page string="Details" >
+                             <group>
+                                    <field name="outgen_id" nolabel='1'>
+                                        <tree editable="bottom">
+                                            <field name="uom"/>
+                                            <field name="qty"/>
+                                            <field name="item"/>
+                                        </tree>
+                                    </field>
+
+                                </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_outwardgen_tree" model="ir.ui.view">
+            <field name="name">outwardgen</field>
+            <field name="model">outwardgen</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+
+                <tree string="outwardgen">
+
+                    <field name="date"/>
+                    <field name="time_out"/>
+                    <field name="vehicle_type"/>
+                    <field name="gon"/>
+                    <field name="document_ref"/>
+                    <field name="vehicle"/>
+
+                </tree>
+               
+            </field>
+
+        </record>
+
+        <record model="ir.actions.act_window" id="action_outwardgen">
+            <field name="name">outwardgen</field>
+            <field name="res_model">outwardgen</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_inwardret_form" model="ir.ui.view">
+            <field name="name">inwardret_form</field>
+            <field name="model">inwardret</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                
+                <form string="inwardret">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+
+                                <field name="dept"/>
+                                <field name="date_in"/>
+                                <field name="time_in" widget="float_time"/>
+                                <field name="document_ref"/>
+                                <field name="vehicle_type"/>
+                        
+                            </group>
+                    
+                            <group name="group_right">
+
+                                <field name="gin"/>
+                                <field name="date_out"/>
+                                <field name="time_out" widget="float_time"/>
+                                <field name="workers"/>
+                                <field name="vehicle"/>
+                                <field name="stock_location_id"/>
+        
+                            </group>
+                        </group>
+                    </sheet>
+                    <notebook colspan="3">
+                        <page string="Details" >
+                             <group>
+                                    <field name="inret_id" nolabel='1'>
+                                        <tree editable="bottom">
+                                            <field name="item_des"/>
+                                            <field name="brought_in_qty"/>
+                                            <field name="qty_used"/>
+                                            <field name="brought_out_qty"/>
+                                        </tree>
+                                    </field>
+
+                                </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_inwardret_tree" model="ir.ui.view">
+            <field name="name">inwardret</field>
+            <field name="model">inwardret</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+
+                <tree string="inwardret">
+
+                    <field name="dept"/>
+                    <field name="gin"/>
+                    <field name="date_in"/>
+                    <field name="date_out"/>
+                    <field name="time_in"/>
+                    <field name="time_out"/>
+                    <field name="document_ref"/>
+                    <field name="workers"/>
+                    <field name="vehicle_type"/>
+                    <field name="vehicle"/>
+                    <field name="stock_location_id"/>
+
+                </tree>
+               
+            </field>
+
+        </record>
+
+        <record model="ir.actions.act_window" id="action_inwardret">
+            <field name="name">inwardret</field>
+            <field name="res_model">inwardret</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_outwardret_form" model="ir.ui.view">
+            <field name="name">outwardret_form</field>
+            <field name="model">outwardret</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                
+                <form string="outwardret">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+
+                                <field name="name"/>
+                                <field name="gon"/>
+                                <field name="date_out"/>
+                                <field name="time_out" widget="float_time"/>
+                                <field name="vehicle_type"/>
+                        
+                            </group>
+                    
+                            <group name="group_right">
+
+                                <field name="dept"/>
+                                <field name="document_ref"/>
+                                <field name="date_in"/>
+                                <field name="time_in" widget="float_time"/>
+                                <field name="vehicle"/>
+                                <field name="stock_location_id"/>
+        
+                            </group>
+                        </group>
+                    </sheet>
+                    <notebook colspan="3">
+                        <page string="Details" >
+                             <group>
+                                    <field name="outret_id" nolabel='1'>
+                                        <tree editable="bottom">
+                                            <field name="item_des"/>
+                                            <field name="brought_in_qty"/>
+                                            <field name="diff"/>
+                                            <field name="brought_out_qty"/>
+                                        </tree>
+                                    </field>
+
+                                </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_outwardret_tree" model="ir.ui.view">
+            <field name="name">outwardret</field>
+            <field name="model">outwardret</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+
+                <tree string="outwardret">
+
+                    <field name="name"/>
+                    <field name="dept"/>
+                    <field name="gon"/>
+                    <field name="date_in"/>
+                    <field name="date_out"/>
+                    <field name="time_in"/>
+                    <field name="time_out"/>
+                    <field name="document_ref"/>
+                    <field name="vehicle_type"/>
+                    <field name="vehicle"/>
+                    <field name="stock_location_id"/>
+
+                </tree>
+               
+            </field>
+
+        </record>
+
+        <record model="ir.actions.act_window" id="action_outwardret">
+            <field name="name">outwardret</field>
+            <field name="res_model">outwardret</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+        
+
+        <menuitem name="GatePass/Inwardpass" id="menu_GatePass" action="action_inwardpass"/>
+            <menuitem name="Gate Inward (Supplier)" id="menu_inwarpass_inwardpass_item" parent="menu_GatePass" action="action_inwardpass"/>
+            <menuitem name="Gate Inward (Shop)" id="menu_inwarshop_inwardshop_item" parent="menu_GatePass" action="action_inwardshop"/>
+            <menuitem name="Gate Outward (Supplier)" id="menu_outwarpass_outwardpass_item" parent="menu_GatePass" action="action_outwardpass"/>
+            <menuitem name="Gate Outward (Shop)" id="menu_outwarshop_outwardshop_item" parent="menu_GatePass" action="action_outwardshop"/>
+            <menuitem name="Gate Inward (General)" id="menu_inwardgen_inwardgen_item" parent="menu_GatePass" action="action_inwardgen"/>
+            <menuitem name="Gate Outward (General)" id="menu_outwardgen_outwardgen_item"  parent="menu_GatePass" action="action_outwardgen"/>
+            <menuitem name="Gate Inward (Returnable)" id="menu_inwardret_inwardret_item"  parent="menu_GatePass" action="action_inwardret"/>
+            <menuitem name="Gate Outward (Returnable)" id="menu_outwardret_outwardret_item"  parent="menu_GatePass" action="action_outwardret"/>
+
+
+
+        </data>
+    </openerp>
