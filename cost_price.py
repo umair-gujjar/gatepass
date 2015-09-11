@@ -12,5 +12,5 @@ class cost_price(osv.Model):
                                           #groups="base.group_user", string="Cost Price"),
 	'standard_price':fields.float('Cost Price'),
 	'price_unit':fields.many2one('account.invoice.line', 'Price Unit'
-             	,help="Link this employee to it's medical details", ondelete="cascade",),
+             	,help="Link this Price Unit to Cost Price", ondelete="cascade",),
     }
