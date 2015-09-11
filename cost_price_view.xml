@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="cost_price_view_form_inherit1" model="ir.ui.view">
+            <field name="name">product_template</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">                
+                <form string="Product">
+                    <sheet>
+                        
+                        <notebook>
+                            <page string="Procurements" groups="base.group_user">
+                                <group name="procurement">
+                                    <group name="general">
+                                        <field name="standard_price"/>
+                                    </group>
+                                </group>
+                            </page>
+                            </notebook>
+                        </sheet>
+                    </form>                                                 
+            </field>
+        </record>     
+    </data>
+</openerp>        
+
+
+                    
+                            
