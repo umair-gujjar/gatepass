@@ -1,7 +1,7 @@
 {
-    "name": "Smile Task Time Tracking",
+    "name": "Task Time Tracking",
     "version": "0.1",
-    "author": "Smile",
+    "author": "Ehtisham Faisal",
     "category": "apps",
     "description":
         """
