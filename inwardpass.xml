@@ -10,30 +10,30 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 
-                <form string="inwardpass">
+                <form string="Inwardpass">
                     <sheet>
+                        <h1><field name="name" attrs="{'invisible': [('name','=','/')]}"/></h1>
                         <group name="group_top">
                             <group name="group_left">
 
-                                <field name="date"/>
+                                
+                                <field name="time_in"/>
                                 <field name="document_type"/>
                                 <field name="invoice_ref" />
-                                <field name="time_out" widget="float_time"/>
-                                <field name="vehicle_type" />
                                 <field name="supplier_details"/>
                         
                             </group>
                     
                             <group name="group_right">
-                                <field name="gin"/>
+                                <field name="gin" readonly="1"/>
                                 <field name="lc"/>
                                 <field name="bilty"/>
-                                <field name="time_in" widget="float_time"/>
+                                <field name="time_out"/>
                                 <field name="vehicle"/> 
         
                             </group>
                         </group>
-                    </sheet>
+                    
                     <notebook colspan="3">
                         <page string="Details" >
                             <group>
@@ -46,7 +46,18 @@
                                     </field>
                             </group>
                         </page>
+                        <page string="Remarks" >
+                            <group>
+                                    <field name="remarks" nolabel='1'>
+                                    </field>
+                            </group>
+                        </page>
                     </notebook>
+                    </sheet>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
                 </form>
             </field>
         </record>
@@ -61,16 +72,15 @@
 
                 <tree string="inwardpass">
 
-                    <field name="date"/>
+                    <field name="name"/>
                     <field name="document_type" />
                     <field name="invoice_ref" />
                     <field name="time_in"/>
-                    <field name="vehicle_type"/>
                     <field name="supplier_details"/>
-                    <field name="gin"/>
+                    <field name="gin" readonly="1"/>
                     <field name="lc"/>
                     <field name="bilty"/>
-                    <field name="time_out"/>
+                    <field name="time_out" />
                     <field name="vehicle"/>
 
                 </tree>
@@ -79,7 +89,7 @@
 
         </record>
         <record model="ir.actions.act_window" id="action_inwardpass">
-            <field name="name">Inwardpass</field>
+            <field name="name">GI Supplier</field>
             <field name="res_model">inwardpass</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -91,13 +101,13 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 
-                <form string="inwardshop">
+                <form string="Inwardshop">
                     <sheet>
+                        <h1><field name="name" attrs="{'invisible': [('name','=','/')]}"/></h1>
                         <group name="group_top">
                             <group name="group_left">
-
                                 <field name="date"/>
-                                <field name="time_in" widget="float_time"/>
+                                <field name="time_in" />
                                 <field name="srin"/>
                                 <field name="branch"/>
                         
@@ -105,14 +115,14 @@
                     
                             <group name="group_right">
 
-                                <field name="gin"/>
-                                <field name="vehicle_type"/>
-                                <field name="vehicle"/>
-                                <field name="fleet_vehicle_id"/>
+                                <field name="gin" readonly="1"/>
+                                <field name="fleet_vehicle_id" on_change="on_change_vehicle(fleet_vehicle_id)"/>
+                                <field name="driver"/>
+                                
         
                             </group>
                         </group>
-                    </sheet>
+                    
                     <notebook colspan="3">
                         <page string="Details" >
                             <group>
@@ -125,7 +135,14 @@
                                     </field>
                             </group>
                         </page>
+                        <page string="Remarks" >
+                            <group>
+                                    <field name="remarks" nolabel='1'>
+                                    </field>
+                            </group>
+                        </page>
                     </notebook>
+                    </sheet>
                 </form>
             </field>
         </record>
@@ -138,15 +155,15 @@
             <field name="arch" type="xml">
 
                 <tree string="inwardshop">
-
+                    <field name="name"/>
                     <field name="date"/>
                     <field name="time_in"/>
                     <field name="srin"/>
                     <field name="branch"/>
-                    <field name="gin"/>
-                    <field name="vehicle_type"/>
-                    <field name="vehicle"/>
+                    <field name="gin" readonly="1"/>
                     <field name="fleet_vehicle_id"/>
+                    <field name="driver"/>
+                    
                         
 
                 </tree>
@@ -156,7 +173,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_inwardshop">
-            <field name="name">inwardshop</field>
+            <field name="name">GI Shop</field>
             <field name="res_model">inwardshop</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -168,8 +185,9 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 
-                <form string="outwardpass">
+                <form string="Outwardpass">
                     <sheet>
+                        <h1><field name="name" attrs="{'invisible': [('name','=','/')]}"/></h1>
                         <group name="group_top">
                             <group name="group_left">
 
@@ -182,14 +200,13 @@
                     
                             <group name="group_right">
 
-                                <field name="gon"/>
-                                <field name="time_out" widget="float_time"/>
-                                <field name="vehicle_type"/>
+                                <field name="gon" readonly="1"/>
+                                <field name="time_out" />
                                 <field name="vehicle"/>
         
                             </group>
                         </group>
-                    </sheet>
+                    
                     <notebook colspan="3">
                         <page string="Details" >
                             <group>
@@ -203,7 +220,14 @@
 
                             </group>
                         </page>
+                        <page string="Remarks" >
+                            <group>
+                                    <field name="remarks" nolabel='1'>
+                                    </field>
+                            </group>
+                        </page>
                     </notebook>
+                    </sheet>
                 </form>
             </field>
         </record>
@@ -216,11 +240,10 @@
             <field name="arch" type="xml">
 
                 <tree string="outwardpass">
-
+                    <field name="name"/>
                     <field name="date"/>
-                    <field name="gon"/>
-                    <field name="time_out"/>
-                    <field name="vehicle_type"/>
+                    <field name="gon" readonly="1"/>
+                    <field name="time_out" />
                     <field name="vehicle"/>
                     <field name="nature"/>
                     <field name="sron"/>
@@ -234,7 +257,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_outwardpass">
-            <field name="name">outwardpass</field>
+            <field name="name">GO Supplier</field>
             <field name="res_model">outwardpass</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -246,26 +269,27 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 
-                <form string="outwardshop">
+                <form string="Outwardshop">
                     <sheet>
+                        <h1><field name="name" attrs="{'invisible': [('name','=','/')]}"/></h1>
                         <group name="group_top">
                             <group name="group_left">
-
+                                <field name="show_reference"/>
+                                <field name="reference_field" attrs="{'invisible':[('show_reference', '!=', True)]}" />
                                 <field name="date"/>
-                                <field name="time_out" widget="float_time"/>
-                                <field name="vehicle_type"/>
+                                <field name="time_out" />
                         
                             </group>
                     
                             <group name="group_right">
 
-                                <field name="gon"/>
-                                <field name="vehicle"/>
-                                <field name="fleet_vehicle_id"/>
+                                <field name="gon" readonly="1"/>
+                                <field name="driver"/>
+                                <field name="fleet_vehicle_id" on_change="on_change_vehicle(fleet_vehicle_id)"/>
         
                             </group>
                         </group>
-                    </sheet>
+                    
                     <notebook colspan="3">
                         <page string="Details" >
                             <group>
@@ -279,7 +303,14 @@
 
                             </group>
                         </page>
+                        <page string="Remarks" >
+                            <group>
+                                    <field name="remarks" nolabel='1'>
+                                    </field>
+                            </group>
+                        </page>
                     </notebook>
+                </sheet>
                 </form>
             </field>
         </record>
@@ -293,11 +324,11 @@
 
                 <tree string="outwardshop">
 
+                    <field name="name"/>
                     <field name="date"/>
                     <field name="time_out"/>
-                    <field name="vehicle_type"/>
-                    <field name="gon"/>
-                    <field name="vehicle"/>
+                    <field name="gon" readonly="1"/>
+                    <field name="driver"/>
                     <field name="fleet_vehicle_id"/>
 
                 </tree>
@@ -307,7 +338,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_outwardshop">
-            <field name="name">outwardshop</field>
+            <field name="name">GO Shop</field>
             <field name="res_model">outwardshop</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -319,26 +350,25 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 
-                <form string="inwardgen">
+                <form string="Inwardgen">
                     <sheet>
+                        <h1><field name="name" attrs="{'invisible': [('name','=','/')]}"/></h1>
                         <group name="group_top">
                             <group name="group_left">
-
                                 <field name="date"/>
-                                <field name="time_in" widget="float_time"/>
-                                <field name="vehicle_type"/>
+                                <field name="time_in" />
                         
                             </group>
                     
                             <group name="group_right">
 
-                                <field name="gin"/>
+                                <field name="gin" readonly="1"/>
                                 <field name="document_ref"/>
                                 <field name="vehicle"/>
         
                             </group>
                         </group>
-                    </sheet>
+
                     <notebook colspan="3">
                         <page string="Details" >
                             <group>
@@ -352,7 +382,14 @@
 
                              </group>
                         </page>
+                        <page string="Remarks" >
+                            <group>
+                                    <field name="remarks" nolabel='1'>
+                                    </field>
+                            </group>
+                        </page>
                     </notebook>
+                </sheet>
                 </form>
             </field>
         </record>
@@ -365,11 +402,10 @@
             <field name="arch" type="xml">
 
                 <tree string="inwardgen">
-
+                    <field name="name"/>
                     <field name="date"/>
                     <field name="time_in"/>
-                    <field name="vehicle_type"/>
-                    <field name="gin"/>
+                    <field name="gin" readonly="1"/>
                     <field name="document_ref"/>
                     <field name="vehicle"/>
 
@@ -380,7 +416,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_inwardgen">
-            <field name="name">inwardgen</field>
+            <field name="name">GI General</field>
             <field name="res_model">inwardgen</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -392,26 +428,24 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 
-                <form string="outwardgen">
+                <form string="Outwardgen">
                     <sheet>
+                        <h1><field name="name" attrs="{'invisible': [('name','=','/')]}"/></h1>
                         <group name="group_top">
                             <group name="group_left">
-
                                 <field name="date"/>
-                                <field name="time_out" widget="float_time"/>
-                                <field name="vehicle_type"/>
+                                <field name="time_out" />
                         
                             </group>
                     
                             <group name="group_right">
 
-                                <field name="gon"/>
+                                <field name="gon" readonly="1"/>
                                 <field name="document_ref"/>
                                 <field name="vehicle"/>
         
                             </group>
                         </group>
-                    </sheet>
                     <notebook colspan="3">
                         <page string="Details" >
                              <group>
@@ -425,7 +459,14 @@
 
                                 </group>
                         </page>
+                        <page string="Remarks" >
+                            <group>
+                                <field name="remarks" nolabel='1'>
+                                </field>
+                            </group>
+                        </page>
                     </notebook>
+                </sheet>
                 </form>
             </field>
         </record>
@@ -438,11 +479,10 @@
             <field name="arch" type="xml">
 
                 <tree string="outwardgen">
-
+                    <field name="name"/>
                     <field name="date"/>
-                    <field name="time_out"/>
-                    <field name="vehicle_type"/>
-                    <field name="gon"/>
+                    <field name="time_out" />
+                    <field name="gon" readonly="1"/>
                     <field name="document_ref"/>
                     <field name="vehicle"/>
 
@@ -453,7 +493,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_outwardgen">
-            <field name="name">outwardgen</field>
+            <field name="name">GO General</field>
             <field name="res_model">outwardgen</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -465,31 +505,29 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 
-                <form string="inwardret">
+                <form string="Inwardret">
                     <sheet>
+                        <h1><field name="name" attrs="{'invisible': [('name','=','/')]}"/></h1>
                         <group name="group_top">
                             <group name="group_left">
-
                                 <field name="dept"/>
                                 <field name="date_in"/>
-                                <field name="time_in" widget="float_time"/>
+                                <field name="time_in" />
                                 <field name="document_ref"/>
-                                <field name="vehicle_type"/>
                         
                             </group>
                     
                             <group name="group_right">
 
-                                <field name="gin"/>
+                                <field name="gin" readonly="1"/>
                                 <field name="date_out"/>
-                                <field name="time_out" widget="float_time"/>
+                                <field name="time_out" />
                                 <field name="workers"/>
                                 <field name="vehicle"/>
                                 <field name="stock_location_id"/>
         
                             </group>
                         </group>
-                    </sheet>
                     <notebook colspan="3">
                         <page string="Details" >
                              <group>
@@ -497,14 +535,21 @@
                                         <tree editable="bottom">
                                             <field name="item_des"/>
                                             <field name="brought_in_qty"/>
-                                            <field name="qty_used"/>
                                             <field name="brought_out_qty"/>
+                                            <field name="qty_used"/>
                                         </tree>
                                     </field>
 
                                 </group>
                         </page>
+                        <page string="Remarks" >
+                            <group>
+                                    <field name="remarks" nolabel='1'>
+                                    </field>
+                            </group>
+                        </page>
                     </notebook>
+                </sheet>
                 </form>
             </field>
         </record>
@@ -517,16 +562,15 @@
             <field name="arch" type="xml">
 
                 <tree string="inwardret">
-
+                    <field name="name"/>
                     <field name="dept"/>
-                    <field name="gin"/>
+                    <field name="gin" readonly="1"/>
                     <field name="date_in"/>
                     <field name="date_out"/>
-                    <field name="time_in"/>
-                    <field name="time_out"/>
+                    <field name="time_in" />
+                    <field name="time_out" />
                     <field name="document_ref"/>
                     <field name="workers"/>
-                    <field name="vehicle_type"/>
                     <field name="vehicle"/>
                     <field name="stock_location_id"/>
 
@@ -537,7 +581,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_inwardret">
-            <field name="name">inwardret</field>
+            <field name="name">GI Returnable</field>
             <field name="res_model">inwardret</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -548,17 +592,15 @@
             <field name="model">outwardret</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                
-                <form string="outwardret">
+                <form string="Outwardret">
                     <sheet>
+                        <h1><field name="name" attrs="{'invisible': [('name','=','/')]}"/></h1>
                         <group name="group_top">
                             <group name="group_left">
 
-                                <field name="name"/>
-                                <field name="gon"/>
+                                <field name="gon" readonly="1"/>
                                 <field name="date_out"/>
-                                <field name="time_out" widget="float_time"/>
-                                <field name="vehicle_type"/>
+                                <field name="time_out" />
                         
                             </group>
                     
@@ -567,28 +609,34 @@
                                 <field name="dept"/>
                                 <field name="document_ref"/>
                                 <field name="date_in"/>
-                                <field name="time_in" widget="float_time"/>
+                                <field name="time_in" />
                                 <field name="vehicle"/>
                                 <field name="stock_location_id"/>
         
                             </group>
                         </group>
-                    </sheet>
                     <notebook colspan="3">
                         <page string="Details" >
                              <group>
                                     <field name="outret_id" nolabel='1'>
                                         <tree editable="bottom">
+                                            <field name="brought_out_qty" on_change="onchange_result(brought_in_qty, brought_out_qty)"/>
                                             <field name="item_des"/>
-                                            <field name="brought_in_qty"/>
+                                            <field name="brought_in_qty" on_change="onchange_result(brought_in_qty, brought_out_qty)"/>
                                             <field name="diff"/>
-                                            <field name="brought_out_qty"/>
                                         </tree>
                                     </field>
 
                                 </group>
                         </page>
+                        <page string="Remarks" >
+                            <group>
+                                    <field name="remarks" nolabel='1'>
+                                    </field>
+                            </group>
+                        </page>
                     </notebook>
+                </sheet>
                 </form>
             </field>
         </record>
@@ -604,13 +652,12 @@
 
                     <field name="name"/>
                     <field name="dept"/>
-                    <field name="gon"/>
+                    <field name="gon" readonly="1"/>
                     <field name="date_in"/>
                     <field name="date_out"/>
-                    <field name="time_in"/>
-                    <field name="time_out"/>
+                    <field name="time_in" />
+                    <field name="time_out" />
                     <field name="document_ref"/>
-                    <field name="vehicle_type"/>
                     <field name="vehicle"/>
                     <field name="stock_location_id"/>
 
@@ -621,10 +668,15 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_outwardret">
-            <field name="name">outwardret</field>
+            <field name="name">GO Returnable</field>
             <field name="res_model">outwardret</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to start . 
+              </p>
+            </field>
         </record>
 
 
