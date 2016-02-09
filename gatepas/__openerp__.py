@@ -1,6 +1,6 @@
 {
- 'name': 'GatePass',
- 'description': 'GATEFORMPASS',
+ 'name': 'FleetGatePass',
+ 'description': 'FleetGatePass',
  'author': 'Ehtisham Faisal',
  'depends': ['mail','fleet','stock'],
  'data': [
