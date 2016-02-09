@@ -1,6 +1,6 @@
 {
  'name': 'GatePass',
- 'description': 'GATEINVARDPASS',
+ 'description': 'GATEFORMPASS',
  'author': 'Ehtisham Faisal',
  'depends': ['mail','fleet','stock'],
  'data': [
